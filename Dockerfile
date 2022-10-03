@@ -1,6 +1,6 @@
 
 # From the source image
-FROM python:3.6-slim as base
+FROM tensorflow/tensorflow:1.15.4-gpu-jupyter as base
 
 # Identify maintainer
 LABEL maintainer = "mokhtar.sellami@gmail.com"
