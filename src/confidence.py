@@ -18,11 +18,11 @@ import os
 def readydata(dataset, step):
     # dataset is 'ppi5k' or 'cn15k'
     # step is 'one'(without confidence) or 'two'(with confidence)
-    base = os.path.abspath("..") + '\\data\\'
+    base =  os.getcwd() +'/data/'
     dataset_id = dataset
 
-    train_file = base + dataset_id + '\\train.tsv'
-    test_file = base + dataset_id + '\\test.tsv'
+    train_file = base + dataset_id + '/train.tsv'
+    test_file = base + dataset_id + '/test.tsv'
 
     train_with_confidence_file = open(train_file + ".txt", 'w')
     test_with_confidence_file = open(test_file + ".txt", 'w')

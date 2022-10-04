@@ -16,22 +16,24 @@
 import os
 import time
 import numpy as np
-from keras import metrics, callbacks
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
-from keras.optimizers import Adam
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import metrics, callbacks
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM
+from tensorflow.keras.optimizers import Adam
 from matplotlib import pyplot as plt
-from src import pickleloss
-from src.checkpoint import checkpoint_base, ukgeCheckpoint, get_last_status
+import pickleloss
+from checkpoint import checkpoint_base, ukgeCheckpoint, get_last_status
 
 
 def training(dataset, dimension, batch_size, epochs):
-    base = os.path.abspath('..') + '\\data\\' + dataset + '\\'
+    base =  os.getcwd()  + '/data/' + dataset + '/'
     embedding_file = base + 'train.tsv.txt'+str(dimension)+'_sg.w2v'
     train_file = base + 'train.tsv.txt'
     test_file = base + 'test.tsv.txt'
     model_file = base + 'model_e'+str(epochs)+'_'+str(dimension)+'d_sg.h5'
-    checkpoint_dir = base + 'checkpoints\\'
+    checkpoint_dir = base + 'checkpoints/'
     checkpoint_base(checkpoint_dir)
     checkpoint_file = checkpoint_dir + os.path.basename(model_file) + '-loss.chk'
     loss_file = base + os.path.basename(model_file) + '.loss'

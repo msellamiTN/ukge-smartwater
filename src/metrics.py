@@ -16,7 +16,7 @@
 import os
 import time
 import numpy as np
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 
 
 def evaluate(dataset, model_file='model_e80_128d_sg.h5'):

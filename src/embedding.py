@@ -19,7 +19,7 @@ from gensim.models import Word2Vec
 import sys
 import logging
 import time
-from src.count import number_of_triples
+from count import number_of_triples
 
 
 def pre_training(dataset, dimension):
@@ -29,7 +29,7 @@ def pre_training(dataset, dimension):
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s')
     logging.root.setLevel(level=logging.ERROR)
 
-    base = os.path.abspath("..") + '\\data\\'+dataset+'\\'
+    base =  os.getcwd() + '/data/'+dataset+'/'
     corpus = base + 'train.tsv.txt'
     total_triples = number_of_triples(dataset)  # number of no-repeat triples in training dataset
     dim = dimension
@@ -37,8 +37,8 @@ def pre_training(dataset, dimension):
 
     start = time.time()
 
-    model = Word2Vec(LineSentence(corpus), size=int(dim), window=2, sample=0,
-                     iter=10, negative=5, min_count=1,
+    model = Word2Vec(LineSentence(corpus), vector_size=int(dim), window=2, sample=0,
+                     epochs =10, negative=5, min_count=1,
                      sg=1,  # skip_gram (1) or CBOW (0)
                      workers=multiprocessing.cpu_count())
 

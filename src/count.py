@@ -17,9 +17,9 @@ import os
 
 
 def number_of_triples(dataset):
-    base = os.path.abspath("..") + '\\data\\'
+    base =  os.getcwd()  + '/data/'
     dataset_id = dataset
-    file = base + dataset_id + '\\train.tsv.txt'
+    file = base + dataset_id + '/train.tsv.txt'
 
     entities = list()
     relations = list()

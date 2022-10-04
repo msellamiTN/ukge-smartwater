@@ -14,7 +14,7 @@ COPY requirements.txt /app/
 
 # Install required packages
 RUN pip install -r ./requirements.txt
-# FROM base as builder
+FROM base as builder
 # Copy app.py and__init__.py outside the container
 # to /app/ inside the container
 COPY . /app

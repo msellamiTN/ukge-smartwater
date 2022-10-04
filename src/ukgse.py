@@ -15,10 +15,10 @@
 """
 
 import argparse
-from src.confidence import readydata
-from src.embedding import pre_training
-from src.nnet import training
-from src.metrics import evaluate
+from confidence import readydata
+from embedding import pre_training
+from nnet import training
+from metrics import evaluate
 
 parser = argparse.ArgumentParser(description='Predict confidence of uncertainty by Knowledge Graph Embedding')
 parser.add_argument('-ds', '--dataset', type=str, default='ppi5k', help='testing dataset is PPI5k or CN15K')
